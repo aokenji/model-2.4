@@ -38,7 +38,7 @@ This project provides tools and infrastructure for collecting, processing, and v
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/water-quality-monitoring.git
+git clone https://github.com/aokenji/water-quality-monitoring.git
 cd water-quality-monitoring
 ```
 
@@ -95,20 +95,6 @@ analyzer = Analyzer()
 report = analyzer.generate_report(start_date='2025-01-01', end_date='2025-01-31')
 ```
 
-## Documentation
-
-Full documentation is available in the `docs/` directory or online at [your-docs-url].
-
-## Contributing
-
-Contributions are welcome! Please read our [Contributing Guidelines](CONTRIBUTING.md) before submitting pull requests.
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
 ## Testing
 
 Run the test suite:
@@ -128,7 +114,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## Contact
 
 - Project Maintainer/s: BS Biology Students. Mabalacat City College, Institute of Arts and Sciences.
-- Project Link: [https://github.com/yourusername/water-quality-monitoring](https://github.com/yourusername/water-quality-monitoring)
+- Project Link: [https://github.com/aokenji/water-quality-monitoring](https://github.com/aokenji/water-quality-monitoring)
 
 ## Roadmap
 
@@ -140,4 +126,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Support
 
-If you encounter any issues or have questions, please [open an issue](https://github.com/yourusername/water-quality-monitoring/issues) on GitHub.
+If you encounter any issues or have questions, please [open an issue](https://github.com/aokenji/water-quality-monitoring/issues) on GitHub.
