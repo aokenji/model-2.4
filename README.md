@@ -1,6 +1,6 @@
 # Water Quality Monitoring System
 
-A comprehensive system for monitoring and analyzing water quality parameters in real-time.
+A comprehensive system for monitoring and to analyze water quality parameters in real-time.
 
 ## Overview
 
