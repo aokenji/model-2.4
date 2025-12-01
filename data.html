@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data & Analysis</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Barangay Paralayunan Water Quality Monitoring</h1>
+    </header>
+    <nav>
+        <a href="index.html">Home</a> | <a href="problem.html">Problem</a> | <a href="solution.html">Solution</a> | <a href="biology.html">Biology</a> | <a href="references.html">References</a>
+    </nav>
+    <main>
+        <h2>Data Collection & Analysis</h2>
+        <p>Use the form below to input water test data (e.g., from DIY kits). Data will be displayed here and downloadable as CSV for sharing/analysis.</p>
+        <p><strong>Biology Note:</strong> pH should be 6.5-8.5 for safe water; turbidity >5 NTU may indicate pollution affecting microbial life.</p>
+        
+        <!-- Data Input Form -->
+        <form id="dataForm">
+            <label for="date">Date:</label>
+            <input type="date" id="date" required><br><br>
+            
+            <label for="ph">pH Level:</label>
+            <input type="number" id="ph" step="0.1" min="0" max="14" required><br><br>
+            
+            <label for="turbidity">Turbidity (NTU):</label>
+            <input type="number" id="turbidity" step="0.1" min="0" required><br><br>
+            
+            <button type="submit">Add Data</button>
+        </form>
+        
+        <!-- Data Table -->
+        <h3>Collected Data</h3>
+        <table id="dataTable" border="1" style="width:100%; margin-top:10px;">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>pH</th>
+                    <th>Turbidity (NTU)</th>
+                </tr>
+            </thead>
+            <tbody id="dataBody">
+                <!-- Rows added dynamically -->
+            </tbody>
+        </table>
+        
+        <!-- Download Button (appears after data is added) -->
+        <button id="downloadBtn" style="display:none; margin-top:10px;">Download CSV</button>
+        
+        <!-- Existing Analysis Section -->
+        <h3>Analysis of Sample Data</h3>
+        <div id="stats"></div>
+        <h4>pH Trends</h4>
+        <canvas id="phChart"></canvas>
+        <h4>Turbidity Trends</h4>
+        <canvas id="turbChart"></canvas>
+    </main>
+    <footer>&copy; 2025 Mabalacat City College, Institute of Arts and Sciences.</footer>
+    <script src="script.js"></script>
+    <script>
+        // Form handling and CSV download
+        const form = document.getElementById('dataForm');
+        const tableBody = document.getElementById('dataBody');
+        const downloadBtn = document.getElementById('downloadBtn');
+        let dataRows = []; // Array to store data
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const date = document.getElementById('date').value;
+            const ph = parseFloat(document.getElementById('ph').value);
+            const turbidity = parseFloat(document.getElementById('turbidity').value);
+            
+            // Add to table
+            const row = tableBody.insertRow();
+            row.insertCell(0).textContent = date;
+            row.insertCell(1).textContent = ph;
+            row.insertCell(2).textContent = turbidity;
+            
+            // Store in array for CSV
+            dataRows.push({ date, ph, turbidity });
+            
+            // Show download button
+            downloadBtn.style.display = 'block';
+            
+            // Reset form
+            form.reset();
+        });
+
+        // CSV Download Function
+        downloadBtn.addEventListener('click', function() {
+            let csvContent = 'Date,pH,Turbidity\n';
+            dataRows.forEach(row => {
+                csvContent += `${row.date},${row.ph},${row.turbidity}\n`;
+            });
+            
+            const blob = new Blob([csvContent], { type: 'text/csv' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'user_water_data.csv';
+            a.click();
+            URL.revokeObjectURL(url);
+        });
+    </script>
+</body>
+</html>

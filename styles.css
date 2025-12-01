@@ -1,0 +1,33 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    line-height: 1.6;
+}
+header {
+    background-color: #268d29;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+nav {
+    margin: 10px 0;
+    text-align: center;
+}
+nav a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #4CAF50;
+}
+main {
+    max-width: 800px;
+    margin: auto;
+}
+footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.8em;
+}
+canvas {
+    max-width: 100%;
+    height: auto;
+}
